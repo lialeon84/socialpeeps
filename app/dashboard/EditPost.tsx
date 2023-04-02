@@ -14,6 +14,7 @@ type EditProps = {
   avatar: string
   name: string
   title: string
+  createdAt: string
   comment?: {
     id: string
     postId: string
@@ -25,6 +26,7 @@ export default function EditPost({
   avatar,
   name,
   title,
+  createdAt,
   comment,
   id,
 }: EditProps) {
@@ -53,6 +55,18 @@ export default function EditPost({
    deleteToastID = toast.loading("Deleting your post.", { id: deleteToastID })
     mutate(id)
   }
+  var commentDataDate:any = createdAt.substring(0,10).split("-")
+      var commentDateSplit = commentDataDate;
+    
+      var commentMonth = commentDateSplit?.[1];
+    
+      var commentDay = commentDateSplit?.[2];
+    
+      var commentYr = commentDateSplit?.[0];
+    
+      var myPostsFullDate = commentMonth +"/"+ commentDay +"/"+ commentYr;
+    //  console.log("myPostsFullDate: ", myPostsFullDate)
+
   
   return (
     <>
@@ -64,11 +78,12 @@ export default function EditPost({
         <div className="flex items-center gap-2">
           <Image 
           className="rounded-full"
-          width={32}
-          height={32}
+              width={32}
+              height={32}
           src={avatar} 
           alt="avatar" />
           <h3 className="font-bold text-gray-700">{name}</h3>
+          <h2 className="text-sm text-slate-500 truncate">{myPostsFullDate}</h2>
         </div>
         
         <div className="my-8 ">
@@ -82,9 +97,7 @@ export default function EditPost({
           </p>
         </Link>
         </div>
-          {/* <p className=" text-sm font-bold text-gray-700">
-            {comment?.length} Comments
-          </p> */}
+          
           <button
             onClick={(e) => {
               e.stopPropagation()

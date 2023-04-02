@@ -21,6 +21,7 @@ const fetchDetails = async (slug: string) => {
 }
 
 export default function PostDetail(url: URL) {
+   
   const { data, isLoading } = useQuery<PostType>({
    
     queryKey: ["detail-post"],
@@ -28,20 +29,23 @@ export default function PostDetail(url: URL) {
   })
   if (isLoading) {return "Loading"};
 
-  var commentDataDate = data?.updatedAt?.substring(0,10);
-  console.log("SlugcommentDate: ", commentDataDate)
+  //var commentDataDate = data?.comment;
+  var commentDataDate:any = data?.comment
+  
+  for(var val of commentDataDate){
+      const testing = val?.createdAt.substring(0,10).split("-")
+      var commentDateSplit = testing;
+    
+      var commentMonth = commentDateSplit?.[1];
+    
+      var commentDay = commentDateSplit?.[2];
+    
+      var commentYr = commentDateSplit?.[0];
+    
+      var commentFullDate = commentMonth +"/"+ commentDay +"/"+ commentYr;
+     // console.log("commentFullDate: ", commentFullDate)
+  }
 
-  var commentDateSplit = commentDataDate?.split("-");
-  
-  var commentMonth = commentDateSplit?.[1];
-  
-  var commentDay = commentDateSplit?.[2];
-  
-  var commentYr = commentDateSplit?.[0];
-  
-  var commentFullDate = commentMonth +"/"+ commentDay +"/"+ commentYr;
-  
-  console.log("commentFullDate: ", commentFullDate)
 
   return (
     <div>
@@ -51,9 +55,11 @@ export default function PostDetail(url: URL) {
         avatar={data?.user.image}
         postTitle={data?.title}
         comment={data?.comment}
+        createdAt={data?.createdAt}
       />
       <AddComment id={data?.id} />
       {data?.comment?.map((comment) => (
+         
         <motion.div
           animate={{ opacity: 1, scale: 1 }}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -70,9 +76,8 @@ export default function PostDetail(url: URL) {
               alt="avatar"
             />
             <h3 className="font-bold">{comment?.user?.name}</h3>
-            <h2 className="text-sm">{
-            comment?.createdAt?.substring(0,10)
-             }</h2>
+            <h2 className="text-sm text-slate-500 truncate">{
+            commentFullDate}</h2>
           </div>
           <div className="py-4">{comment.title}</div>
         </motion.div>

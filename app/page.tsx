@@ -32,6 +32,7 @@ export default function Home() {
           avatar={post.user.image}
           postTitle={post.title}
           comment={post.comment}
+          createdAt={post.createdAt}
         />
       ))}
     </div>

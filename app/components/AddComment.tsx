@@ -15,7 +15,7 @@ type PostProps = {
 }
 export default function AddComment({ id }: PostProps) {
   let commentToastId: string
-  console.log(id)
+  
   const [title, setTitle] = useState("")
   const [isDisabled, setIsDisabled] = useState(false)
 
@@ -26,7 +26,7 @@ export default function AddComment({ id }: PostProps) {
     },
     {
       onSuccess: (data) => {
-        console.log("addComment: ", data)
+       // console.log("addComment: ", data)
         queryClient.invalidateQueries(["detail-post"])
         setTitle("")
         setIsDisabled(false)

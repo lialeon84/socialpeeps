@@ -17,8 +17,10 @@ export default function MyPosts() {
     queryKey: ["auth-posts"]
   })
   if (isLoading) return <h1>Posts are loading...</h1>
-  const testing = data; 
-  console.log("mypost: ", testing)
+  //const testing = data; 
+  //console.log("mypost: ", testing)
+
+
   return (
     <div>
        
@@ -30,6 +32,7 @@ export default function MyPosts() {
          name={data.name}
          title={post.title}
          comment={post.comment}
+         createdAt={post?.createdAt}
        />
       ))}
     </div>
