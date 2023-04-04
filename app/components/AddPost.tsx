@@ -47,7 +47,7 @@ export default function CreatePost() {
           value={title}
           name="title"
           placeholder="What's on your mind?"
-          className="p-4 text-lg rounded-md my-2  bg-gray-900 shadow-lg shadow-indigo-500/50 border-2 border-indigo-900"
+          className="p-4 text-lg rounded-md my-2 text-gray-300 bg-gray-900 shadow-lg shadow-indigo-500/50 border-2 border-indigo-900"
         />
       </div>
       <div className=" flex items-center justify-between gap-2">

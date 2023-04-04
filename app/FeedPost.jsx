@@ -55,12 +55,14 @@ console.log("comment: ", comment)
       <div className="my-8 ">
         <p className="break-all text-gray-300">{postTitle}</p>
       </div>
+      
       <div className="flex gap-4 cursor-pointer items-center">
         <Link href={{pathname: `/post/${id}`,}}>
           <p className=" text-sm font-bold text-gray-300">
             {comment?.length} Comments 
           </p>
         </Link>
+
         </div>
         <button  onClick={handleClick}
         style={{ color: active ? "indigo" : "gray" }}
