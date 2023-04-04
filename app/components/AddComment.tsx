@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios, { AxiosError } from "axios"
 import toast from "react-hot-toast"
-import { PostType } from "../types/Post"
+import { PostType } from "../types/CommentsPost"
 
 type Comment = {
   postId?: string
@@ -60,17 +60,17 @@ export default function AddComment({ id }: PostProps) {
           value={title}
           type="text"
           name="title"
-          className="p-4 text-lg rounded-md my-2"
+          className="p-4 text-lg text-gray-300 rounded-md my-2 bg-gray-900 shadow-lg shadow-indigo-500/50 border-2 border-indigo-900"
         />
       </div>
       <div className="flex items-center gap-2">
         <button
           disabled={isDisabled}
-          className=" text-sm bg-teal-600 text-white py-2 px-6 rounded-xl disabled:opacity-25"
+          className=" text-sm bg-indigo-500 shadow-lg shadow-indigo-500/50 hover:shadow-indigo-500/40 text-white py-2 px-6 rounded-xl disabled:opacity-25"
           type="submit">
-          Add Comment 🚀
+          Add Comment
         </button>
-        <p className={`font-bold  ${title.length > 300 ? "text-red-700" : "text-gray-700" }`}> 
+        <p className={`font-bold  ${title.length > 300 ? "text-red-700" : "text-indigo-500" }`}> 
             {`${title.length}/300`} 
         </p>
       </div>

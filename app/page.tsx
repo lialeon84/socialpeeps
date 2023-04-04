@@ -1,10 +1,10 @@
 "use client"
 
 import AddPost from './components/AddPost'
-import Post from "./Post"
+import Post from "./FeedPost"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { PostsType } from "./types/Posts"
+import { PostsType } from "./types/FeedPosts"
 
 
 //Fetch All posts
@@ -32,6 +32,7 @@ export default function Home() {
           avatar={post.user.image}
           postTitle={post.title}
           comment={post.comment}
+          hearts={post.hearts}
           createdAt={post.createdAt}
         />
       ))}

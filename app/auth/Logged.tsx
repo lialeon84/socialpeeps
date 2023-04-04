@@ -12,7 +12,7 @@ export default function Logged({ image }: User) {
   return (
     <li className="flex gap-8 items-center">
       <button
-        className="bg-gray-700 text-white text-sm px-6 py-2 rounded-md "
+        className="bg-indigo-500 shadow-lg shadow-indigo-500/50 hover:shadow-indigo-500/40 text-white text-sm px-6 py-2 rounded-md "
         onClick={() => signOut()}
       >
         Sign Out

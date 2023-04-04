@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/layout.jsx", "pages/api/auth/[...nextauth].js", "app/auth/AuthContext.jsx", "app/components/Post.tsx", "pages/api/posts/getPosts.ts", "pages/api/posts/authPosts.ts", "prisma/client.js", "pages/_app.js", "app/Post.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/layout.jsx", "pages/api/auth/[...nextauth].js", "app/auth/AuthContext.jsx", "app/components/Post.tsx", "pages/api/posts/getPosts.ts", "pages/api/posts/authPosts.ts", "prisma/client.js", "pages/_app.js", "app/FeedPost.jsx"],
   "exclude": ["node_modules"]
 }

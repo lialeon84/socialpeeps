@@ -15,5 +15,6 @@ export type AuthPosts = {
         title: string
         userId: string
       }[]
+      
     }[]
   }

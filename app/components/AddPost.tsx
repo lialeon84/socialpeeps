@@ -40,27 +40,27 @@ export default function CreatePost() {
   } 
 
   return (
-    <form onSubmit={submitPost} className="bg-white my-8 p-8 rounded-md ">
-      <div className="flex flex-col my-4">
+    <form onSubmit={submitPost} className="bg-black rounded-lg ">
+      <div className="flex flex-col my-8">
         <textarea
           onChange={(e) => setTitle(e.target.value)}
           value={title}
           name="title"
           placeholder="What's on your mind?"
-          className="p-4 text-lg rounded-md my-2  bg-gray-200"
+          className="p-4 text-lg rounded-md my-2  bg-gray-900 shadow-lg shadow-indigo-500/50 border-2 border-indigo-900"
         />
       </div>
       <div className=" flex items-center justify-between gap-2">
         <p
           className={`font-bold text-sm ${
-            title.length > 300 ? "text-red-700" : "text-gray-700"
+            title.length > 300 ? "text-red-700" : "text-indigo-500"
           } `}
         >{`${title.length}/300`}</p>
         <button
           disabled={isDisabled}
-          className="text-sm bg-teal-600 text-white py-2 px-6 rounded-xl disabled:opacity-25"
+          className="text-sm bg-indigo-500 shadow-lg shadow-indigo-500/50 hover:shadow-indigo-500/40 text-white py-2 px-6 rounded-xl disabled:opacity-25"
           type="submit">
-          Create post
+          Post
         </button>
       </div>
     </form>

@@ -1,12 +1,14 @@
 "use client"
 
-import Post from "@/app/Post"
+import Post from "@/app/FeedPost"
 import AddComment from "../../components/AddComment"
 import Image from "next/image"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { PostType } from "../../types/Post"
+import { PostType } from "../../types/CommentsPost"
 import { motion } from "framer-motion"
+import { formatDate } from "@/lib/utils";
+
 //This is for MyPost page
 type URL = {
   params: {
@@ -33,16 +35,17 @@ export default function PostDetail(url: URL) {
   var commentDataDate:any = data?.comment
   
   for(var val of commentDataDate){
-      const testing = val?.createdAt.substring(0,10).split("-")
-      var commentDateSplit = testing;
+      const commentDate = formatDate(val?.createdAt);
+      //console.log(commentDate)
+    //   var commentDateSplit = testing;
     
-      var commentMonth = commentDateSplit?.[1];
+    //   var commentMonth = commentDateSplit?.[1];
     
-      var commentDay = commentDateSplit?.[2];
+    //   var commentDay = commentDateSplit?.[2];
     
-      var commentYr = commentDateSplit?.[0];
+    //   var commentYr = commentDateSplit?.[0];
     
-      var commentFullDate = commentMonth +"/"+ commentDay +"/"+ commentYr;
+       var commentFullDate = commentDate
      // console.log("commentFullDate: ", commentFullDate)
   }
 
@@ -55,6 +58,7 @@ export default function PostDetail(url: URL) {
         avatar={data?.user.image}
         postTitle={data?.title}
         comment={data?.comment}
+        hearts={data?.user.hearts}
         createdAt={data?.createdAt}
       />
       <AddComment id={data?.id} />
@@ -64,7 +68,7 @@ export default function PostDetail(url: URL) {
           animate={{ opacity: 1, scale: 1 }}
           initial={{ opacity: 0, scale: 0.8 }}
           transition={{ ease: "easeOut" }}
-          className="my-6 bg-white p-8 rounded-md"
+          className="my-6 bg-gray-900 shadow-lg shadow-indigo-500/50 border-2 border-indigo-900 p-8 rounded-md"
           key={comment.id}
         >
           <div className="flex items-center gap-2">
@@ -75,11 +79,10 @@ export default function PostDetail(url: URL) {
               src={comment.user?.image}
               alt="avatar"
             />
-            <h3 className="font-bold">{comment?.user?.name}</h3>
-            <h2 className="text-sm text-slate-500 truncate">{
-            commentFullDate}</h2>
+            <h3 className="font-bold text-gray-300">{comment?.user?.name}</h3>
+            <h2 className="text-sm text-slate-500 truncate">{commentFullDate}</h2>
           </div>
-          <div className="py-4">{comment.title}</div>
+          <div className="py-4 text-gray-300">{comment.title}</div>
         </motion.div>
       ))}
     </div>
