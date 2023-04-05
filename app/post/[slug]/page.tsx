@@ -46,7 +46,7 @@ export default function PostDetail(url: URL) {
     //   var commentYr = commentDateSplit?.[0];
     
        var commentFullDate = commentDate
-     // console.log("commentFullDate: ", commentFullDate)
+      console.log("commentFullDate: ", commentFullDate)
   }
 
 
