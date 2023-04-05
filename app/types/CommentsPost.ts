@@ -8,11 +8,6 @@ export type PostType = {
       id: string
       image: string
       name: string
-      hearts: {
-        id: string
-        postId: string
-        userId: string
-      }[]
     }
     comment: {
       createdAt?: string

@@ -32,7 +32,7 @@ export default function Home() {
           avatar={post.user.image}
           postTitle={post.title}
           comment={post.comment}
-          hearts={post.hearts}
+         
           createdAt={post.createdAt}
         />
       ))}

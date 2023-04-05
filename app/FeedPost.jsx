@@ -12,7 +12,7 @@ const like = <FontAwesomeIcon icon={faHeart} />
 
 //app/Post
 
-export default function Post({ id, name, avatar, postTitle, comment, hearts, createdAt }) {
+export default function Post({ id, name, avatar, postTitle, comment, createdAt }) {
 
   var postDataDate = createdAt?.substring(0,10);
   
@@ -31,8 +31,7 @@ export default function Post({ id, name, avatar, postTitle, comment, hearts, cre
     e.preventDefault();
     setActive(!active);
   };
-console.log("hearts: ", hearts)
-console.log("comment: ", comment)
+
   return (
     <motion.div
       animate={{ opacity: 1, scale: 1 }}

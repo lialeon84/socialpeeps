@@ -8,11 +8,6 @@ export type PostsType = {
       postId: string
       userId: string
     }[]
-    hearts?: {
-      id: string
-      postId: string
-      userId: string
-    }[]
     user: {
       name: string
       image: string
